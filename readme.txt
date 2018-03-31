@@ -1,1 +1,1 @@
-This is the readme for Algorithms :)
+This is the readme for the python_stack :)
