@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Disapearing Ninjas</title>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+    </head>
+    <body>
+
+        
+        <img src="{{img_source}}" alt="" >
+        <br>
+          
+    
+        {% for color in colors %}
+            <a href ="/ninja/{{ color  }}"> {{ color  }}<a>
+        {% endfor %}
+        
+        <a href ="/ninja"> All<a> 
+                
+    </body>
+</html>
