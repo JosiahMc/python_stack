@@ -26,7 +26,7 @@ def game_logic(choice):
     }
 
     session[dictionary[choice][rand]] +=1
-    # if choice == computerchoic
+    # if choice == computerchoice
     print 'no wins in session yet'
     print "we made it! you picked {}...".format(choice)
     print dictionary[choice][rand]
