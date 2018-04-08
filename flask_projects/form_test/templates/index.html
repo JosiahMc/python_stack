@@ -1,14 +1,13 @@
 <html>
     <head>
-       <title>Form Test Index</title>{{ url_for('static', filename='style.css') }}
+       <title>Form Test Index</title>
        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    ß
     </head>
     <body>
     <div class="container">
       <h1>Index Page</h1>
       <h3>Create a User</h3>
-      <!-- read on to learn about form actions, we'll talk about the method in a later section -->
+  
      
         <div class="form_contain">
       <form action='/users' method='post'>
