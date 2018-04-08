@@ -1,0 +1,44 @@
+.container{
+    width: 970px;
+    height: 700px;
+    display: inline-block;
+    margin: 0 auto;
+
+
+}
+
+.gold p{
+    border: solid purple 5px;
+    width: 150px;
+    padding-left: 10px;
+    display: inline-block;
+    
+}
+
+.place{
+    width: 170px;
+    height: 150px;
+    border: purple solid 5px;
+    text-align: center;
+    display: inline-block;
+    background: rgb(230, 28, 62);
+}
+.activity{
+    width: 700px;
+    height: 300px;
+    border: purple solid 5px;
+    scroll-behavior: auto;
+    overflow: scroll;
+   
+}
+.activity p{
+    padding: 0 10px;
+    margin: 0;
+    font-size: 14px;
+}
+.win{
+    color: green;
+}
+.lost{
+    color: firebrick;
+}
