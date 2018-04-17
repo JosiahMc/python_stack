@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Random Word</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'randomWord/styles.css' %}">
+</head>
+<body>
+    <h3>This is attempt (number counter goes here/need to use sessions- step 1 : bang head with hammer!)</h3>
+    <fieldset class="box">
+        <legend>Random Word</legend>
+            {{ randomWord }}
+    </fieldset>
+    <!-- <form action='/generate' method='post'>
+                {% csrf_token %}
+                <input type="submit" value="generate">
+    </form> -->
+    <button type="button">Generate</button>
+    <h3>need to connect button to generate the number - repeat step 1 above</h3>
+</body>
+</html>

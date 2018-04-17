@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    {% load static %}
+         <!-- The line above tells Django to be ready to listen for static files -->
+         <link rel="stylesheet" href="{% static 'session_words/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <h2>Add A New Word</h2>
+      <form action="/process">
+        {% csrf_token %}
+        <input type="text" name="new_word">
+
+        <input type="radio" name="" value=""> Red<br>
+        <input type="radio" name="" value=""> Green<br>
+        <input type="radio" name="" value=""> Blue<br>
+
+        <input type="checkbox" name="" value=""> Show in BIG fonts!<br>
+
+        <input type="submit" name="button">
+      </form>
+    </div>
+    <div class="right">
+      {{request.session.new_word}}
+
+      <!-- <body>
+          <h3>Random Word (attempt # {{ request.session.counter }})</h3>
+          <h2>{{ request.session.random_word }}</h2>
+              <form style="display: inline" action="random_word/reset" method="get">
+                   {% csrf_token %}
+                  <button type="submit">Reset</button>
+              </form>
+              <form style="display: inline" action="/" method="get">
+                  <button type="submit">Generate</button>
+              </form>
+      </body> -->
+
+
+
+
+    </div>
+  </div>
+</body>
+</html>

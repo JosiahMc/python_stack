@@ -1,7 +1,7 @@
-"""hello_world URL Configuration
+"""random_word URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.11/topics/http/urls/
+    https://docs.djangoproject.com/en/1.10/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -17,6 +17,6 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^$', include('hello_world_apps.urls')),
+    url(r'^', include('apps.random_app.urls')),
     url(r'^admin/', admin.site.urls),
 ]
