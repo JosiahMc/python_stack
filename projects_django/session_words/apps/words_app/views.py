@@ -1,40 +1,34 @@
-from django.shortcuts import render, HttpResponse, redirect
-  # the index function is called when root is visited
+from django.shortcuts import render, redirect
+from time import strftime, gmtime
+
+# Create your views here.
 def index(request):
-    # print "double time working"
-    return render(request, 'session_words/index.html')
+	return render(request, 'session_words/index.html')
 
+def addwords(request):
+	if request.method == 'POST':
+		wordtime = strftime('%#H:%M:%S%p, %B %#d %Y', gmtime())
+		if 'words' not in request.session:
+   
+			request.session['words'] = []
+		if 'bigfont' in request.POST:
+			data = {'word': request.POST['addword'],
+			'color': request.POST['color'],
+			'font': 'big',
+			'time': wordtime}
+            
+		else:
+			data = {'word': request.POST['addword'],
+			'color': request.POST['color'],
+			'font': 'small',
+			'time': wordtime}
+		request.session['words'].append(data)
+		request.session.modified = True
+		
+		print request.session['words']
+		#YOU DON'T NEED TO PASS REQUEST INTO THE REDIRECT
+	return redirect('/')
 
-
-def process(request):
-    request.session['new_word'] = request.GET['new_word']
-    print "process working"
-    return redirect('/')
-
-
-#
-# def index(request):
-#     # if 'counter' not in request.session:
-#     request.session['counter'] = 0
-#     request.session['counter'] += 1
-#     request.session['random_word'] = get_random_string(length = 14)
-#
-#     return render(request, 'rando_app/index.html')
-#
-#
-# def index(request):
-#     if 'counter' not in request.session:
-#         request.session['counter'] = 0
-#     return render(request, 'surveys/index.html')
-#
-# # Processes form submission
-#
-#
-# # Renders the submitted information
-# def result(request):
-#     return render(request, 'surveys/result.html')
-#
-# # Resets the session counter
-# def reset(request):
-#     request.session['counter'] = 0
-#     return redirect('/')
+def clear(request):
+	request.session.clear()
+	return redirect('/')

@@ -8,4 +8,4 @@ def index ( request ):
 
     return render( request, "random_word/landing.html", word )
 
-    # request.session['Key']
+    
