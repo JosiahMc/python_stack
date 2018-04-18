@@ -26,7 +26,7 @@ def addwords(request):
 		request.session.modified = True
 		
 		print request.session['words']
-		#YOU DON'T NEED TO PASS REQUEST INTO THE REDIRECT
+		
 	return redirect('/')
 
 def clear(request):
