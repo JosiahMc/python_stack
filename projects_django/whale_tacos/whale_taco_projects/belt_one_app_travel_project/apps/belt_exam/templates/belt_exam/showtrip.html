@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>Trips Belt</title>
+
+</head>
+<body>
+	  <a href="/">Home</a>
+	
+	
+	  <form action="/logoff">
+	    
+	    <button type="submit">Logoff</button>
+	  </form>
+	</nav>
+
+<div>
+	{% for trip in trips %}
+	<h1>{{trip.destination}}</h1>
+	<p><b>Description:</b> {{trip.desc}}</p>
+	<p><b>Travel Date From:</b> {{trip.trip_start}}</p>
+	<p><b>Travel Date to:</b> {{trip.trip_end}}</p>
+	<br>	
+<div>
+	<h3>Other Users joining the tip:</h3>
+	{% for user in joinedusers %}
+	<h5>{{user.name}}</h5>
+	{% endfor %}
+	{% endfor %}

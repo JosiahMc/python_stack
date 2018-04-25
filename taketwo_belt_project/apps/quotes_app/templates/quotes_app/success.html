@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Messages</title>
+
+    {% load static %}
+
+</head>
+
+<body>
+    <div class="container blank">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Hola El Humano! {{ name }}!</h2>
+                <br>
+                <a href='Books/logout'>Logout</a>
+                <br>
+                <h4>To Quote or not to Quote... that is the... quote.</h4>
+
+                <div class="pre-scrollable">
+                        {% if quotes %} {% for quote in quotes %}
+                        
+                        
+                        <div class="quotebox" style="border:4px solid blue">
+                            
+                            <p><span>{{ quote.author }}</span>: {{ quote.content }}</p>
+                            <p class="poster">
+                                    Posted by <a href='/user/{{ quote.posted_by.id }}'>{{ quote.posted_by.first_name }}</a>
+                                </p>
+                            <form action="/fav_btn" class="shift_btn" method="post">
+                                {% csrf_token %} 
+                                <input type='hidden' name='this_quote' value="{{quote.id}}">
+                                <input type="submit" class="btn btn-success" value="Like">
+                            </form>
+                        </div>
+                        {% endfor %} 
+                        
+                        {% endif %}
+                </div>
+                <br>
+                <br>
+                
+            </div>
+            
+            <div class="col-md-6">
+              </a>
+              
+                <h4>Your Favorites</h4>
+                <div class="pre-scrollable" id="tinyBox">
+                    {% if fave_quotes %} {% for quote in fave_quotes %}
+                    <div class="quotebox" style="border:4px solid blue">
+                        <p><span>{{ quote.author }}</span>: {{ quote.content }}</p>
+                        <p class="poster">
+                                Posted by <a href='/user/{{ quote.posted_by.id }}'>{{ quote.posted_by.first_name }}</a>
+                        </p>
+                        <form action="/unfav_btn" class="shift_btn" method="post">{% csrf_token %}
+                            <input type='hidden' name='this_quote' value="{{quote.id}}">
+                            <input type="submit" class="btn btn-success" value="unlinke">
+                        </form>
+                    </div>
+                    {% endfor %} {% endif %}
+
+                </div>
+                <div class="bottomright">
+                    <h3>Add a quote:</h3>
+                    <form action="/rev_create" method="post">
+                        {% csrf_token %}
+                        <div>Quote by:
+                            <input class="fixit" type="text" name="author">
+                        </div>
+                        <div><span id="up">Message:</span>
+                            <textarea name='content' rows="10" cols="35"></textarea>
+                        </div>
+                        <input type="submit" class="btn btn-success move_it" value="Submit!">
+                    </form>
+                </div>
+                <br>
+                {% if messages %}
+                <div id="msgs">
+                    <ul>
+                        {% for message in messages %}
+                        <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>    
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

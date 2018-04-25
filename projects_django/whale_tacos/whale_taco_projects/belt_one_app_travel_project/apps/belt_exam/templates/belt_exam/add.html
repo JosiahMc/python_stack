@@ -1,0 +1,47 @@
+<html>
+<head>
+	
+	<title>Trips Belt</title>
+
+</head>
+<body>
+	  <a href="/">Home</a>
+	
+	
+	  <form action="/logoff">
+	    
+	    <button type="submit">Logoff</button>
+	  </form>
+	</nav>
+
+<div>
+	<h1 >Add a Trip!</h1>
+			{% if messages %}
+        	{% for message in messages %}
+         		<p >{{message}}</p>
+       		{% endfor %}
+      	{% endif %}
+<form action="/addtrip" method="POST">
+			{% csrf_token %}
+  <div>
+    Destination:
+   <input type="text" name="destination">
+  </div>
+  <div>
+    Description:
+    <textarea id="desc" rows="3" name="desc"></textarea>
+  </div>	
+  <div>
+    Travel Date From:
+    <input type="date" name="trip_start">
+  </div> 
+    <div>
+    Travel Date To:
+    <input type="date" name="trip_end">
+  </div> 
+  <input type="hidden" name="user" value="{{loggedinuser.id}}">
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+</body>
+</html>
